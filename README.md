@@ -1,6 +1,6 @@
 # Cross-Platform UI Factory Pattern in Python
 
-A clean implementation of the Factory Pattern for creating platform-specific UI elements (Windows, Mac, Linux) in Python.
+A clean implementation of the Abstract Factory Pattern for creating platform-specific UI elements (Windows, Mac, Linux) in Python.
 
 ## Overview
 
@@ -38,4 +38,25 @@ button.render()
 window.render()
 menu.render()
 button.on_click()
+```
+
+
+If it was to be implemented for Basic Factory pattern, below would have been the logic
+```
+# Simple Factory Pattern example (just for buttons)
+class ButtonFactory:
+    @staticmethod
+    def create_button(platform):
+        if platform == "windows":
+            return WindowsButton()
+        elif platform == "mac":
+            return MacButton()
+        elif platform == "linux":
+            return LinuxButton()
+        else:
+            raise ValueError("Unsupported platform")
+
+# Usage
+button = ButtonFactory.create_button("mac")
+print(button.render())
 ```
